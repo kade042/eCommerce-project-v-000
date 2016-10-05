@@ -35,3 +35,39 @@
   font-weight: 700;
 
 }
+
+.text {
+    width: 100%;
+}
+
+input, .form-control {
+    box-shadow: inset 2px 3px 3px rgba(0,0,0,0.07);
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px #e2e2e2 solid;
+}
+
+.panel-title, .panel-footer {
+  text-align: center;
+}
+
+.separator-text {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 30px;
+    //line-height: 1.875rem;
+    font-weight: 700;
+    font-style: normal;
+    width: 45px;
+    display: block;
+    margin: -16px auto 20px;
+    color: #333;
+    background-color: #fff;
+}
+.separator {
+    border-top: 1px solid #e2e2e2;
+    padding-top: 7px;
+    text-align: center;
+    height: 30px;
+    padding-top: 0;
+}
