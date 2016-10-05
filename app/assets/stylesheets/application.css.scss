@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "bootstrap/theme";
+
+ body {
+   padding-top: 70px;
+   padding-bottom: 1px;
+
+}
+
+.navbar-default .navbar-brand {
+  color: black;
+  font-weight: 700;
+
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: black;
+  font-weight: 700;
+
+}
