@@ -5,7 +5,23 @@ gem 'sprockets-rails'
 gem 'compass-rails'
 gem 'jquery-turbolinks'
 gem "bootstrap-sass"
+
+gem "paperclip"
+gem 'country_select'
+gem 'font-awesome-rails'
+
+
+
+gem 'pundit'
+
 gem "faker"
+gem "friendly_id"
+gem 'omniauth-oauth2', '1.3.1'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
