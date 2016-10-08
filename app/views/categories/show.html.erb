@@ -9,8 +9,15 @@
         <%= image_tag item.image.url(:medium) %>
         <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
           <span class="title"><%= link_to item.title, category_path(@category) %></span>
-          <span class="item-price">$<%= item.price.to_f/100 %></span><br />
-          <span class="item-button"><%= link_to 'Add wishlist', store_path, method: :get, class: "btn btn-info" %></span>
+          <span class="item-price">$<%= item.price.to_f/100 %></span><br /></br />
+          <% if item.inventory > 0 %>
+            <span class="item-button">
+              <%= link_to 'Add to Cart', line_items_path(item_id: item.id), method: :post, class: "btn btn-sm btn-info"%>
+            </span>
+          <%end%>
+          <span class="item-button">
+            <%= link_to 'Add wishlist', store_path, method: :get, class: "btn btn-sm btn-danger" %>
+          </span>
         </div>
 
       <div class="clear"></div>

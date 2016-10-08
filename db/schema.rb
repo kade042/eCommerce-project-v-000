@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007212414) do
+ActiveRecord::Schema.define(version: 20161008205836) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20161007212414) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer  "quantity"
-    t.decimal  "unit_price"
-    t.decimal  "sub_total"
+    t.integer  "quantity",   default: 1
+    t.integer  "unit_price"
+    t.integer  "sub_total"
     t.integer  "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "cart_id"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["item_id"], name: "index_line_items_on_item_id"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20161007212414) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.integer  "current_cart_id"
+    t.index ["current_cart_id"], name: "index_users_on_current_cart_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
