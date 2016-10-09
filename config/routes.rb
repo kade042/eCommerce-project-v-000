@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'carts/show'
 
-  resources :line_items
+  resources :line_items #, only: [:update]
   resources :items
   resources :categories, only: :show
   root to: 'store#index', as: 'store'

@@ -1,22 +1,46 @@
 class LineItemsController < ApplicationController
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_line_item, only: [:show, :create, :edit, :update, :destroy]
+  # GET /line_items
+  # GET /line_items.json
+  def index
+    @line_items = LineItem.all
+  end
+
+  # GET /line_items/1
+  # GET /line_items/1.json
+  def show
+  end
+
+  # GET /line_items/new
+  def new
+    @line_item = LineItem.new
+  end
+
+  # GET /line_items/1/edit
+  def edit
+  end
 
   # POST /line_items
   # POST /line_items.json
   def create
     #binding.pry
     @cart = current_cart
-    @item = Item.find_by(id: params[:item_id])
+   
+    if @line_item
+       #binding.pry
+      self.update
+    else
 
-    @line_item = @item.line_items.new()
+      @line_item = @item.line_items.create(quantity: 1, cart: @cart)
 
-    respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
-        format.json { render :show, status: :created, location: @line_item }
-      else
-        format.html { render :new }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+      respond_to do |format|
+       if @line_item
+          format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
+          format.json { render :show, status: :created, location: @line_item }
+        else
+          format.html { render :new }
+          format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -24,6 +48,7 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
+    #binding.pry
     respond_to do |format|
       if @line_item.update(line_item_params)
         format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
@@ -48,11 +73,19 @@ class LineItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_item
-      @line_item = LineItem.find(params[:id])
+      if params[:id]
+        @line_item = LineItem.find(params[:id])
+      else
+        @item = Item.find_by(id: params[:item_id])
+        @line_item = LineItem.find_by(item_id: @item.id)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:quantity, :unit_price, :sub_total, :item_id)
+      attr_hash = @line_item.attributes
+      attr_hash["quantity"] += 1
+      attr_hash
+      #params.require(:line_item).permit(:quantity, :unit_price, :sub_total, :item_id)
     end
 end
