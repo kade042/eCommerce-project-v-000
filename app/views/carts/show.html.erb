@@ -1,2 +1,71 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<div class="container">
+  <% if !@line_items.empty? %>
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Item</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%">Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+            <% @line_items.each do |line_item| %>
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs">
+                    <%= image_tag line_item.item.image.url(:thumb) %>
+                  </div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">
+                      <%= link_to line_item.item.title, item_path(line_item.item)%>
+                    </h4>
+										<p><%= line_item.item.description %></p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">
+                <%= "$#{line_item.item.price.to_f/100}" %>
+              </td>
+							<td data-th="Quantity">
+								<%= line_item.quantity %>
+							</td>
+							<td data-th="Subtotal" class="text-center">
+                <%= "$#{line_item.sub_total.to_f/100}" %>
+               </td>
+							<td class="actions" data-th="">
+								<%= button_to 'Remove', line_item_path(line_item), method: :delete, class: "btn btn-danger btn-sm" %>
+							</td>
+						</tr>
+            <%end%>
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong></strong></td>
+						</tr>
+						<tr>
+							<td>
+                <%= link_to "Continue Shopping",store_path,
+                  class: "btn btn-small btn-warning" %>
+              </td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong>Total <%= "$#{current_cart.total.to_f/100}"%></strong></td>
+							<td>
+                
+                  <%= link_to 'Checkout', class: "btn btn-success btn-block"%>
+                
+              </td>
+						</tr>
+					</tfoot>
+				</table>
+        <%else%>
+        <div class="panel panel-default col-md-offset-2">
+          <div class="card card-block text-xs-center panel-body col-md-offset-4">
+            <h4 class="card-title text-info">You don't have items in your cart.</h4>
+            <%= link_to "Continue Shopping",store_path, class: "btn btn-small btn-warning" %>
+          </div>
+        </div>
+        <%end%>
+</div>
