@@ -23,11 +23,10 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    #binding.pry
+
     @cart = current_cart
    
     if @line_item
-       #binding.pry
       self.update
     else
 
@@ -35,8 +34,8 @@ class LineItemsController < ApplicationController
 
       respond_to do |format|
        if @line_item
-          format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
-          format.json { render :show, status: :created, location: @line_item }
+          format.html { redirect_to @cart, notice: 'Line item was successfully created.' }
+          format.json { render :show, status: :created, location: @cart }
         else
           format.html { render :new }
           format.json { render json: @line_item.errors, status: :unprocessable_entity }
@@ -48,11 +47,10 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
-    #binding.pry
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @line_item }
+        format.html { redirect_to @cart, notice: 'Line item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
@@ -65,7 +63,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to cart_url, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
