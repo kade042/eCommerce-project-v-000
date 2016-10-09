@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Category.delete_all
 Item.delete_all
+OrderStatus.delete_all
+User.delete_all
 
 10.times do
   Item.create(
@@ -37,3 +39,12 @@ end
   password: "password"
   )
 end
+
+
+OrderStatus.create! id: 1, name: "In Progress"
+OrderStatus.create! id: 2, name: "Placed"
+OrderStatus.create! id: 3, name: "Shipped"
+OrderStatus.create! id: 4, name: "Cancelled"
+
+
+
