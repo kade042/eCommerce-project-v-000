@@ -39,6 +39,14 @@
                 <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
+            <% unless current_cart.line_items.empty? %>
+              <li>
+              <div id="shoppingBag">
+                <%= link_to "<span class='badge'>#{current_cart.line_items.size}</span>".html_safe,
+                cart_path(current_cart) %>
+              </div>
+              </li>
+            <%end%>
           <% else %>
             <li><%= link_to 'Sign in', new_user_session_path %></li>
             <li><%= link_to 'Sign up', new_user_registration_path %></li>

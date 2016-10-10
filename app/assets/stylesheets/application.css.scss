@@ -130,3 +130,21 @@ div.item-chooser.disabled div.item-chooser-item
   	top: 0;
   	visibility:hidden;
   }
+
+  #shoppingBag {
+    background: image_url('cart.jpeg');
+    width: 36px;
+    height: 30px;
+    margin-left: 0;
+    margin-top: 8px;
+}
+
+.badge {
+  border-radius: 18px;
+  background-color: #5ca667;
+}
+
+#shoppingBag > a:hover, a:focus{
+    border-radius: 18px;
+}
+
