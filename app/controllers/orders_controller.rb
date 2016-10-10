@@ -27,6 +27,9 @@ class OrdersController < ApplicationController
    
     @order = Order.new(user: current_user)
     if @order.save
+      @order.cart.line_items.each do |li|
+        li.item.update_inventory(li.quantity)
+      end
       @order.cart.items = []
       redirect_to cart_path(current_cart)
     else
