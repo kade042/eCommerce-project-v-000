@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-	has_many :carts
+	has_one :cart
 	belongs_to :current_cart, class_name: "Cart"
 	  		
   # Include default devise modules. Others available are:

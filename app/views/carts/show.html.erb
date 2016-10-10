@@ -47,14 +47,13 @@
 						</tr>
 						<tr>
 							<td>
-                <%= link_to "Continue Shopping",store_path,
-                  class: "btn btn-small btn-warning" %>
+                <%= link_to "Continue Shopping",store_path, class: "btn btn-small btn-warning" %>
               </td>
 							<td colspan="2" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong>Total <%= "$#{current_cart.total.to_f/100}"%></strong></td>
 							<td>
                 
-                  <%= link_to 'Checkout', class: "btn btn-success btn-block"%>
+                  <%= button_to 'Checkout', orders_path, method: :post, class: "btn btn-success btn-sm" %>
                 
               </td>
 						</tr>
