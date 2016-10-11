@@ -4,7 +4,18 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_cart
 
+
+  rescue_from Pundit::NotAuthorizedError, with: :not_found
+
   protected
+
+  def not_found
+    respond_to do |format|
+      format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found }
+      format.xml { head :not_found }
+      format.any { head :not_found }
+    end
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
@@ -18,7 +29,8 @@ class ApplicationController < ActionController::Base
     if @cart
         @user.current_cart = @cart
     else
-      @user.current_cart = @user.carts.create
+      @user.cart = Cart.new
+      @user.current_cart = @user.cart
       @user.save
     end
     @user.current_cart

@@ -1,30 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-
-  <div class="content-wrapper">
-		<div class="item-container">
-			<div class="container-fluid">
-				<div class="col-md-12">
-					<div class="item col-md-4 service-image-left">
-							<%= image_tag @item.image.url(:large) %>
-					</div>
+<div class="content-wrapper">
+  <div class="item-container">
+		<div class="container-fluid">
+			<div class="col-md-12">
+				<div class="item col-md-4 service-image-left">
+						<%= image_tag @item.image.url(:large) %>
+				</div>
 				<div class="col-md-4">
 					<div class="item-title"><strong><%= @item.title %></strong></div>
 					<div class="item-desc"></div>
 					<hr>
 					<div class="item-price">$<%= @item.price.to_f/100 %></div>
 
-          <%if @item.inventory < 5 && @item.inventory > 0 %>
-            <div class="item-stock"><strong>There are only <%= @item.inventory %> left in stock.</strong></div>
-          <% elsif @item.inventory < 0 %>
-            <div class="item-out">Out of Stock</div>
-          <%else%>
-            <div class="item-stock">In Stock</div>
-          <% end %>
-
-					<hr>
+	        <%if @item.inventory < 5 && @item.inventory > 0 %>
+	          <div class="item-stock"><strong>There are only <%= @item.inventory %> left in stock.</strong></div>
+	        <% elsif @item.inventory < 0 %>
+	          <div class="item-out">Out of Stock</div>
+	        <%else%>
+	          <div class="item-stock">In Stock</div>
+	        <% end %>
+	        <hr>
+	        <% if  @item.inventory > 0 %>
+						<div class="btn-group cart">
+						 <%= button_to 'Add to Cart', line_items_path(item_id: @item.id ), class: "btn btn-info"%>
+						</div>
+	        <%end%>
+					
 					<div class="btn-group wishlist">
-						<%= button_to 'Add wishlist', store_path, method: :get, class: "btn btn-info" %>
+						<%= button_to 'Add wishlist', store_path, method: :get, class: "btn btn-danger" %>
 					</div>
 				</div>
 			</div>
@@ -32,38 +36,25 @@
 		<div class="container-fluid">
 			<div class="col-md-12 item-info">
 					<ul id="myTab" class="nav nav-tabs nav_tabs">
-
 						<li class="active"><a href="/" data-toggle="tab">DESCRIPTION</a></li>
 						<li><a href="/" data-toggle="tab">item INFO</a></li>
 						<li><a href="/" data-toggle="tab">REVIEWS</a></li>
-
 					</ul>
 				<div id="myTabContent" class="tab-content">
-						<div class="tab-pane fade in active" id="service-one">
-
-							<section class="container item-info">
-								<h3><%=@item.title%>:</h3><br />
-								<%= @item.description%>
-							</section>
-
-						</div>
-					<div class="tab-pane fade" id="service-two">
-
-						<section class="container">
-
+					<div class="tab-pane fade in active" id="service-one">
+						<section class="container item-info">
+							<h3><%=@item.title%>:</h3><br />
+							<%= @item.description%>
 						</section>
-
 					</div>
-					<div class="tab-pane fade" id="service-three">
-
+					<div class="tab-pane fade">
 					</div>
-				</div>
-				<hr>
+					<div class="tab-pane fade">
+					</div>
 			</div>
+			<hr>
 		</div>
+	</div>
 	</div>
 </div>
 
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>

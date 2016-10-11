@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    authorize @items
   end
 
   # GET /items/1
@@ -16,17 +17,19 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    authorize @item
   end
 
   # GET /items/1/edit
   def edit
+    authorize @items
   end
 
   # POST /items
   # POST /items.json
   def create
     @item = Item.new(item_params)
-
+    authorize @item
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -41,6 +44,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    authorize @item
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
@@ -55,6 +59,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
+    authorize @item
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
