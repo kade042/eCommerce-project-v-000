@@ -14,6 +14,15 @@
         <div class="separator">
           <span class="separator-text">OR</span>
         </div>
+        <div id="socialHolder">
+          <p>
+            <%= link_to  "", user_twitter_omniauth_authorize_path, class: "btn btn-lg btn-twitter fa fa-twitter" %>
+            <%= link_to  "", user_facebook_omniauth_authorize_path, class: "btn btn-lg btn-facebook fa fa-facebook" %>
+            <%= link_to  "", user_linkedin_omniauth_authorize_path, class: "btn btn-lg btn-linkedin fa fa-linkedin" %>
+            <%= link_to  "", user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-google fa fa-google" %>
+            <%= link_to  "", user_github_omniauth_authorize_path, class: "btn btn-lg btn-github fa fa-github" %>
+          </p>
+        </div>
 
       </div>
       <div class="panel-body">
@@ -43,7 +52,7 @@
         <%= f.submit "CREATE ACCOUNT" %>
       </div>
 
-      Don’t have an account? <%= render "devise/shared/links" %>
+      Already have an account? <%= render "devise/shared/links" %>
     </div>
   <% end %>
 

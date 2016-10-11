@@ -148,6 +148,11 @@ div.item-chooser.disabled div.item-chooser-item
     border-radius: 18px;
 }
 
+#socialHolder {
+  padding-left:5px;
+  padding-right:5px;
+  text-align: center;
+}
 
 .btn-twitter {
   background-color: #3399CC !important;
@@ -157,12 +162,6 @@ div.item-chooser.disabled div.item-chooser-item
 
 .btn-facebook {
   background-color: #3D5B98 !important;
-  width: 51px;
-  color:#FFFFFF!important;
-}
-
-.btn-facebook {
-  background-color: #3D5B96 !important;
   width: 51px;
   color:#FFFFFF!important;
 }
