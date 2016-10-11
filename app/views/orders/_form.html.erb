@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :order_status_id %>
-    <%= f.text_field :order_status_id %>
+    <%= f.collection_select :order_status_id, OrderStatus.all, :id, :name %>
   </div>
 
   <div class="field">
