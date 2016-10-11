@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :order_status
   belongs_to :user
   has_one :cart, through: :user
-  has_many :shipping_addresses
+  has_one :shipping_address
 
   before_create :set_order_status
   before_save :set_total
