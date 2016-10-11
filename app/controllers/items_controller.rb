@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    authorize @items
+    authorize @item
   end
 
   # POST /items
