@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  validates :title, uniqueness: true
+  validates :title, :category, :price, :description, :image, presence: true
+  
   belongs_to :category
   has_many :line_items
   has_attached_file :image, styles: { large:"660x320", medium: "300x300>", thumb: "100x100>" }

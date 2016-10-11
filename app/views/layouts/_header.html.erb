@@ -42,7 +42,7 @@
             <% unless current_cart.line_items.empty? %>
               <li>
               <div id="shoppingBag">
-                <%= link_to "<span class='badge'>#{current_cart.line_items.size}</span>".html_safe,
+                <%= link_to "<span class='badge'>#{current_cart.number_of_item}</span>".html_safe,
                 cart_path(current_cart) %>
               </div>
               </li>

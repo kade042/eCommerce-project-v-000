@@ -8,4 +8,8 @@ class Cart < ApplicationRecord
       li.valid? ? (li.quantity * li.item.price) : 0
     }.sum
   end
+
+  def number_of_item
+  	line_items.collect(&:quantity).sum
+  end
 end

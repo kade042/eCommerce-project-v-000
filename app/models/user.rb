@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-
+	has_many :shipping_addresses
 	has_one :cart
 	belongs_to :current_cart, class_name: "Cart"
 	  		

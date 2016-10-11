@@ -1,0 +1,53 @@
+<%= form_for @shipping_address, html: { multipart: true }  do |f| %>
+  <div class="col-md-6 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><h3 class="panel-title" >Shipping Address</h3></strong>
+      </div>
+      <div class="panel-body">
+        <div style="margin-bottom: 12px" class="form-group">
+          <%= f.label :"full name"%>:<br />
+          <%= f.text_field :name,  autofocus: true, class: "form-control" %>
+        </div>
+
+        <div style="margin-bottom: 12px" class="form-group">
+          <%= f.label :"address line 1"%>:<br />
+          <%= f.text_field :address_line1, placeholder: 'Street address, P.O.Box, Company name',
+           autofocus: true, class: "form-control" %>
+        </div>
+
+        <div style="margin-bottom: 12px" class="form-group">
+          <%= f.label :"address line 2"%>:<br />
+          <%= f.text_field :address_line2, placeholder: 'Apartments,suit,unit, building,floor, ... ',
+          autofocus: true, class: "form-control" %>
+        </div>
+
+        <div style="margin-bottom: 12px" class="form-group">
+          <%= f.label :city%>:<br />
+          <%= f.text_field :city, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div style="margin-bottom: 12px" class="form-group">
+          <%= f.label :"State/Province/Region"%>:<br />
+          <%= f.text_field :state, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div style="margin-bottom: 12px" class="form-group">
+          <%= f.label :zip_code%>:<br />
+          <%= f.text_field :zip_code, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div style="margin-bottom: 12px" class="form-group">
+          <%= f.label :country%>:<br />
+          <%= f.country_select :country, selected: "US"%>
+        </div>
+
+        <div class="actions">
+          <%= f.hidden_field :user_id, value: @shipping_address.user.id %>
+          <%= f.hidden_field :order_id, value: @shipping_address.order.id %>
+          <%= f.submit "continue" %>
+        </div>
+    </div>
+    </div>
+  </div>
+<% end %>

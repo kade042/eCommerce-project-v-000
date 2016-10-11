@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
         li.item.update_inventory(li.quantity)
       end
       @order.cart.items = []
-      redirect_to cart_path(current_cart)
+      redirect_to new_shipping_address_path(order_id: @order.id)
     else
       redirect_to cart_path(current_cart)
     end
