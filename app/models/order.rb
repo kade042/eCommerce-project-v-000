@@ -4,5 +4,22 @@ class Order < ApplicationRecord
   has_one :cart, through: :user
   has_many :shipping_addresses
 
+  before_create :set_order_status
+  before_save :set_total
+  
+  def total
+  	cart.total
+  end
+
+  private
+
+  def set_order_status
+	self.order_status_id = 1
+  end
+
+  def set_total
+  	self[:total] = total
+  end
+
   
 end

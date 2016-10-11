@@ -2,10 +2,13 @@ class ShippingAddressesController < ApplicationController
   before_action :find_address, only: [:new, :edit, :update, :destroy]
 
     def new
+      @order = Order.find_by(id: params[:order_id])
       if @shipping_address
+        @shipping_address.order = @order
+        @shipping_address.save
         redirect_to edit_shipping_address_path(@shipping_address)
       else
-        @order = Order.find_by(id: params[:order_id])
+        
         @shipping_address = ShippingAddress.new(order: @order, user: current_user)
       end
 
