@@ -248,15 +248,15 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :twitter, "3fAi8XE4CVuhjUlheYDRfPv81", "VlINZAtsb7j7zHJjRVyBawjGaTQkSo340eLBDbQzLF52nnC2Oa"
-  config.omniauth :facebook, '390707837720090', '119223f2bdbe1e29869451ae781eae05'
-  config.omniauth :github, "993ef448dd994898e851", "1fa70ef57d854009f22933f29703c76dbfa7eea1",
+  config.omniauth :twitter, ENV['TWITTER_APPID'],  ENV['TWITTER_APPSEC']
+  config.omniauth :facebook, ENV['FACEBOOK_APPID'], ENV['FACEBOOK_APPSEC']
+  config.omniauth :github, ENV['GITHUB_APPID'], ENV['GITHUB_APPSEC'],
                   scope: 'user'
-  config.omniauth :linkedin, "78eg2zoelq0qvm", "kZ3TBgw7Mhl3OZLF",
+  config.omniauth :linkedin, ENV['LINKEDIN_APPID'], ENV['LINKEDIN_APPSEC'],
                   scope:  'r_emailaddress'
                   #fields: ['id','first-name', 'last-name', 'location', 'picture-url', 'public-profile-url']
-  config.omniauth :google_oauth2, "817785087978-krqf5mcs6gv3rhufc90sj2m2jnauh7ju.apps.googleusercontent.com", "LQc8RHjbC6EhqhDBux0KBSBt"
-                
+  config.omniauth :google_oauth2, ENV['GOOGLE_APPID'], ENV['GOOGLE_APPSEC']
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

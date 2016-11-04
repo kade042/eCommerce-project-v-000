@@ -1,21 +1,17 @@
-<p id="notice"><%= notice %></p>
+
 <% @categories.each do |category| %>
     <h2><%= link_to category.title, category_path(category)%></h2>
-
     <div class="row form-group item-chooser">
       <% category.items.each do |item| %>
     	<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     		<div class="item-chooser-item selected">
-    				<%= image_tag item.image.url(:medium) %>
-            <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12">
+
+    				<%= image_tag item.image.url(:medium), class: "img-rounded"%>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       				<span class="title"><%= link_to item.title, item_path(item) %></span>
               <span class="item-price">$<%= item.price.to_f/100 %></span>
-            
             </div>
-
-
     			<div class="clear">
-
           </div>
     		</div>
 
