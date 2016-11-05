@@ -1,29 +1,3 @@
 class ItemPolicy < ApplicationPolicy
-  def index?
-	user.admin?
-  end
-
-  def edit?
-	user.admin?
-  end
-
-  def new?
-	user.admin?
-  end
-
-  def create?
-	user.admin?
-  end
-
-  def update?
-	user.admin?
-  end
-
-  def destroy?
-	user.admin?
-  end
-
-
-
-	
+  permit_owner_to :index, :edit, :new, :create, :update, :destroy
 end
