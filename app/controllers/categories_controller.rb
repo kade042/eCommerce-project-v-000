@@ -1,6 +1,10 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: :show
   def show
+    respond_to do |format|
+      format.html {render :show }
+      format.json { render json: @category}
+    end
   end
 
 
