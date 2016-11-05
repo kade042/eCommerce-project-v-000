@@ -1,9 +1,9 @@
 
 <h1><%= @category.title %></h1>
-
 <ul>
-  <% @category.items.each do |item| %>
+
 <div class="row form-group item-chooser">
+  <% @category.items.each do |item| %>
   <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
     <div class="item-chooser-item selected">
         <%= image_tag item.image.url(:medium) %>
@@ -24,6 +24,7 @@
     </div>
 
   </div>
-</div>
   <%end%>
+</div>
+
 </ul>
