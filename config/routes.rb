@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :orders
   root to: 'store#index', as: 'store'
   resources :line_items #, only: [:update]
-  resources :categories, only: :show do
+  resources :categories, only: [:show, :index] do
     resources :items
   end
   resources :items
