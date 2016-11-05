@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
     else
       @items = Item.all
     end
+
     authorize @items
     respond_to do |format|
       format.html { render :index}
@@ -32,6 +33,7 @@ class ItemsController < ApplicationController
         redirect_to category_item_path(@category)
       end
     end
+    
     respond_to do |format|
       format.html { render :show}
       format.json { render json: @item}
