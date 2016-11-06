@@ -25,8 +25,8 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
 
-    @cart = current_cart
-   
+
+    #binding.pry
     if @line_item
       self.update
     else
@@ -72,11 +72,12 @@ class LineItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_item
+      @cart = current_cart
       if params[:id]
-        @line_item = LineItem.find(params[:id])
-      else
+       @line_item = LineItem.find(params[:id])
+     elsif @cart.line_items
         @item = Item.find_by(id: params[:item_id])
-        @line_item = LineItem.find_by(item_id: @item.id)
+        @line_item = @cart.line_items.find{|li| li.item_id == @item.id}
       end
     end
 

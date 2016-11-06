@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_cart
 
 
-  #rescue_from ActiveRecord::RecordNotFound, with: :not_found
-  #rescue_from Exception, with: :not_found
-  #rescue_from ActionController::RoutingError, with: :not_found
-  #rescue_from Pundit::NotAuthorizedError, with: :not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from Exception, with: :not_found
+  rescue_from ActionController::RoutingError, with: :not_found
+  rescue_from Pundit::NotAuthorizedError, with: :not_found
 
   def raise_not_found
     raise ActionController::RoutingError.new("No route matches #{params[:unmatched_route]}")
@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
 
     @user = current_user
     @cart = Cart.find_by(user_id: @user.id)
+
     if @cart
         @user.current_cart = @cart
     else
@@ -50,5 +51,6 @@ class ApplicationController < ActionController::Base
       @user.save
     end
     @user.current_cart
+    #binding.pry
   end
 end
