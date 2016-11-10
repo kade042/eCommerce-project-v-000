@@ -36,8 +36,8 @@
 		<div class="container-fluid">
 			<div class="col-xs-12 col-sm-12 col-md-12 item-info">
 					<ul id="myTab" class="nav nav-tabs nav_tabs">
-						<li><a href="#" data-toggle="tab">DESCRIPTION</a></li>
-						<li><a href="#" data-toggle="tab">REVIEWS</a></li>
+						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+						<li><a href="#service-two" data-toggle="tab">REVIEWS</a></li>
 					</ul>
 				<div id="myTabContent" class="tab-content">
 					<div class="tab-pane fade in active" id="service-one">
@@ -46,9 +46,7 @@
 							<%= @item.description%>
 						</section>
 					</div>
-					<div class="tab-pane fade">
-					</div>
-					<div class="tab-pane fade">
+					<div class="tab-pane fade" id="service-two">
 					</div>
 			</div>
 			<hr>
