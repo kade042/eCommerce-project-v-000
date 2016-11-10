@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :reviews
   resources :shipping_addresses
   resources :orders
   root to: 'store#index', as: 'store'
