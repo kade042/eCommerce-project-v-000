@@ -146,3 +146,16 @@ div.clear
     .service-image-left > center > img,.service-image-right > center > img{
     	max-height: 155px;
     }
+
+    #post-review-box {
+        padding: 10px;
+        display: none;
+    }
+
+    #content-panel, #review {
+        padding: 5px;
+        text-align: center;
+        background-color: #f0f0f0;
+        border: solid 1px #c3c3c3;
+        border-radius: 4px;
+    }
