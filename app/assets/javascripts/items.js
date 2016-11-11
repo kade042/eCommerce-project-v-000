@@ -9,19 +9,18 @@ function showReviews(itemId) {
     var html = '<section class="container">';
     reviews.forEach(function(review) {
         html += '<h4>' + review.title + ':</h4>';
-        html += '<p>By '+review.user.name +' on ' + review.updated_at + '</p>';
+        html += '<p>By <strong>'+review.user.name +'</strong> on ' + review.updated_at + '</p>';
         html += review.content;
     });
+
     html += '</section>'
     $('div[id=review]').html(html);
   });
 }
 
 
-$(function(){
-  var reviewTab = $('a[href="#review"]');
-  reviewTab.click(function() {
+
+$(document).on('click','a[href="#review"]', function() {
     var item_id = $(this).data('id');
     showReviews(item_id);
-  });
 });
