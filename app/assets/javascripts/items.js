@@ -26,6 +26,7 @@ $(function() {
 				$("div[id=myTabContent]").children().first().removeClass('in active');
 				$("div[id=myTabContent]").children().last().addClass('in active');
 				showReviews(response.item_id);
+        cancleBtn();
 
 	    }
 	  });
@@ -50,7 +51,19 @@ function showReviews(itemId) {
   });
 }
 
+function cancleBtn() {
+	$('#post-review-box').slideUp(300, function()
+		{
+			$('#open-review-box').fadeIn(200);
+		});
+	$('#close-review-box').hide();
+}
 
+$(document).on("click", '#close-review-box', function(e)
+{
+	e.preventDefault();
+	cancleBtn();
+});
 
 $(document).on('click','a[href="#review"]', function(e) {
     e.preventDefault();
