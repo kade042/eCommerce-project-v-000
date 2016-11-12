@@ -41,10 +41,10 @@
         <div class="col-md-12">
           <form action="" name="review">
             <div class="field">
-              <input placeholder="Title" id="title" name="title" ></input>
+              <input placeholder="Title" id="title" name="title" required></input>
             </div>
             <div class="field">
-              <textarea placeholder="Enter your review here..." class="form-control" cols="50" id="content" name="content"></textarea>
+              <textarea placeholder="Enter your review here..." class="form-control" cols="50" id="content" name="content" required></textarea>
             </div>
             <div class="actions">
               <input id="itemId" value ="<%= @item.id %>" type="hidden">
