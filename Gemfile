@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'angular-rails-templates'
 gem 'active_model_serializers', '~>0.9.5'
 gem 'devise'
 gem 'sprockets-rails'

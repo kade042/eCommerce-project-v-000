@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: :show
+  #before_action :authenticate_user!, except: :show
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
       @items = Item.all
     end
 
-    authorize @items
+    #authorize @items
     respond_to do |format|
       format.html { render :index}
       format.json { render json: @items}
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
         redirect_to category_item_path(@category)
       end
     end
-    
+
     respond_to do |format|
       format.html { render :show}
       format.json { render json: @item}

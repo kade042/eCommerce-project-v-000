@@ -1,0 +1,22 @@
+{
+  "name": "eCommerce-project-v-000",
+  "homepage": "https://github.com/kade042/eCommerce-project-v-000",
+  "authors": [
+    "kade042 <dereje88@gmail.com>"
+  ],
+  "description": "front end for eCommerce app(SPA using angularJS)",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-ui-router": "^0.3.2",
+    "bootstrap": "^3.3.7"
+  }
+}
