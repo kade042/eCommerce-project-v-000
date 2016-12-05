@@ -14,8 +14,13 @@ angular
       })
       .state('items', {
         url: '/items/:id',
-        templateUrl: 'items/_item.html',
-        controller: 'ItemCtrl'
+        templateUrl: 'items/_show.html',
+        controller: 'ItemCtrl',
+        resolve: {
+          item: ['$stateParams', 'items', function($stateParams, items) {
+            return items.getItem($stateParams.id);
+          }]
+        }
       });
 
       $urlRouterProvider.otherwise('store');
