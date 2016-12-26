@@ -1,0 +1,16 @@
+<div class="col-xs-12 col-sm-12 col-md-12 item-info">
+
+  <ul class="nav nav-pills">
+    <li ng-class="{ active:tab.isSet(1) }">
+      <a href="" ng-click="tab.setTab(1)">Description</a>
+    </li>
+
+    <li ng-class="{ active:tab.isSet(2) }">
+      <a href="" ng-click="tab.setTab(2)">Reviews</a>
+    </li>
+  </ul>
+
+  <descriptions ng-show="tab.isSet(1)"></descriptions>
+  <reviews ng-show="tab.isSet(2)"></reviews>
+  
+</div>

@@ -1,17 +1,22 @@
 Rails.application.routes.draw do
 
 
+  #get 'item_search/index'
+  resources :items_search, only: :index
   resources :reviews
   resources :shipping_addresses
   resources :orders
   root to: 'store#index', as: 'store'
-  resources :line_items #, only: [:update]
+  resources :carts, only: :show
+  resources :line_items
   resources :categories, only: [:show, :index] do
     resources :items
   end
-  resources :items
+  resources :items do
+    resources :reviews;
+  end
   #resources :categories, only: :show
-  resources :carts, only: :show
+
 
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

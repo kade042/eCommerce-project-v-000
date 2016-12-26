@@ -2,7 +2,9 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: :show
   def index
     @categories = Category.all
-    render json: @categories
+    respond_to do |format|
+      format.json {render json: @categories }
+    end
   end
 
   def show

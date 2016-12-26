@@ -1,21 +1,31 @@
+
 angular
   .module('eCommerce')
-  .factory('items', ['$http', function($http) {
+  .factory('items', function($http) {
     var obj = {
-      items : []
+      items: []
     }
 
     obj.getAllItems = function() {
-      return $http.get('/items.json').success(function(data) {
-        obj.items.push(data);
-      });
-    }
+       return $http.get('/items.json');
+    };
 
     obj.getItem = function(id) {
-      return $http.get('/items/'+ id + '.json').success(function(res) {
-        return res.data;
-      });
-    }
+      return $http.get('/items/'+ id +'.json');
+    };
+
+    obj.addReview = function(id, review){
+      return $http.post('/items/'+ id +'/reviews.json', review);
+    };
+
+    obj.getByCategory = function (id) {
+      return $http.get('/categories/'+ id +'/items.json');
+    };
+
+    obj.searchByTitle = function (search_term) {
+       return obj.items = $http.get('/items_search.json', { "params": { "keywords": search_term }});
+    };
+
     return obj;
 
-  }]);
+  });

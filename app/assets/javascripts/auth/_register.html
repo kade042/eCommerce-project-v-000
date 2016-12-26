@@ -1,0 +1,77 @@
+<div class="col-md-4 col-md-offset-4">
+  <form name="registerForm"ng-submit="registerForm.$valid && register()" novalidate>
+  <div class="panel panel-default">
+
+    <div class="panel-group">
+      <div class="panel-heading">
+        <div>
+          <h3 class="panel-title" >Sign up</h3>
+        </div>
+        <br />
+        <div class="separator">
+          <span class="separator-text">OR</span>
+        </div>
+        <div id="socialHolder">
+
+        </div>
+
+      </div>
+      <div class="panel-body">
+        <div style="margin-bottom: 12px" class="text input-group has-feedback " ng-class="
+        {'has-error': registerForm.name.$invalid && registerForm.name.$touched,
+          'has-success': registerForm.name.$valid && registerForm.name.$touched
+        }">
+
+          <input type="text" name="name" placeholder="Name" autofocus="true" class="form-control" ng-model="user.name" required>
+          <p ng-messages="registerForm.name.$error" ng-if="registerForm.name.$touched">
+            <span ng-message="required">Name is required</span>
+          </p>
+
+        </div>
+
+        <div style="margin-bottom: 12px" class="text input-group" ng-class="
+          {'has-error': registerForm.email.$invalid && registerForm.email.$touched,
+            'has-success': registerForm.email.$valid && registerForm.email.$touched
+          }">
+          <input type="email" name="email" placeholder="example@email.com" autofocus="true" class="form-control", ng-model="user.email" required>
+          <p ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
+            <span ng-message="required">Email is required</span>
+            <span ng-message="email">Email must look like email</span>
+          </p>
+        </div>
+
+        <div style="margin-bottom: 12px" class="text input-group" ng-class="
+          {'has-error': registerForm.password.$invalid && registerForm.password.$touched,
+            'has-success': registerForm.password.$valid && registerForm.password.$touched
+          }">
+          <input type="password" name="password" minlength="4" placeholder="password" autocomplete="off" class="form-control" ng-model="user.password" required>
+          <p ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
+            <span ng-message="required">Password is required</span>
+            <span ng-message="minlength">Password must be at list 4 characters</span>
+          </p>
+        </div>
+
+        <div style="margin-bottom: 12px" class="text input-group" ng-class="
+          {'has-error': registerForm.password_confirmation.$invalid && registerForm.password_confirmation.$touched,
+            'has-success': registerForm.password_confirmation.$valid && registerForm.password_confirmation.$touched
+          }">
+          <input type="password" minlength="4" compare-to="user.password" name="password_confirmation" placeholder="password_confirmation" autocomplete="off"  class="form-control" ng-model="user.password_confirmation" required>
+          <p ng-messages="registerForm.password_confirmation.$error" ng-if="registerForm.password_confirmation.$touched">
+            <span ng-message="required">Password is required</span>
+            <span ng-message="minlength">Password must be at list 4 characters</span>
+            <span ng-message="compareTo">These passwords don't match. Try again?</span>
+          </p>
+            
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <div class="actions">
+          <input type="submit" value="CREATE ACCOUNT">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </form>
+</div>

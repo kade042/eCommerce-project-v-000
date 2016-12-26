@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "rails-assets-angular-devise"
+gem 'angular_rails_csrf'
 gem 'angular-rails-templates'
 gem 'active_model_serializers', '~>0.9.5'
 gem 'devise'

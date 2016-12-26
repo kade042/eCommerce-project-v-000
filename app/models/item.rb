@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  validates :title, uniqueness: true
-  validates :title, :category, :price, :description, :image, presence: true
+  #validates :title, uniqueness: true
+  #validates :title, :category, :price, :description, :image, presence: true
   belongs_to :category
   has_many :line_items
   has_many :reviews

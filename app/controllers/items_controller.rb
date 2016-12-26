@@ -5,21 +5,16 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    if params[:category_id]
-      if Category.find_by(id: params[:category_id])
-        flash[:alert] = "Category not found."
-        redirect_to categories_path
-      else
-        @items = Category.find_by(id: params[:category_id]).items
-      end
+    if params[:category_id] && Category.find_by(id: params[:category_id])
+      @items = Category.find_by(id: params[:category_id]).items
     else
       @items = Item.all
     end
 
     #authorize @items
     respond_to do |format|
-      format.html { render :index}
-      format.json { render json: @items}
+      #format.html { render :index}
+      format.json { render json: @items }
     end
   end
 

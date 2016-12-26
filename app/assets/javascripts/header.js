@@ -4,8 +4,8 @@ $(document).on("click", "#category", function(){
       var categories = response['categories'];
       var html ='';
       categories.forEach(function(category) {
-          html += '<li><a href="/categories/'+ category.id +'">'+ category.title+'</a><li>';
-        });
+        html += '<li><a href="/categories/'+ category.id +'">'+ category.title+'</a><li>';
+      });
       $('#categoryList').html(html);
     });
 

@@ -1,0 +1,16 @@
+
+<div class="container">
+  <ol class="list-group">
+    <li class="list-group-item" ng-repeat="item in items">
+      <h3 class="pull-right">
+        <small class="uppercase">Price</small>
+        {{ item.price / 100 | currency}}
+      </h3>
+      <a ng-href="#/items/{{ item.id }}"><img ng-src="{{item.image}}" alt="" class="img-responsive"></a>
+      <h2 class="h3">
+        {{item.title }}
+        <small>{{item.description}}</small>
+      </h2>
+    </li>
+  </ol>
+</div>

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="eCommerce">
   <head>
     <title>ECommerceProjectV000</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <body ng-app="eCommerce">
-    <div  class="container">
-      <%= render 'layouts/header' %>
+  <body >
+    <div  class="container" >
+      <div class="container-fuild" ng-include="'nav/_nav.html'">
+
+      </div><!-- /.container-->
+
       <div>
         <div>
           <div class="continer">

@@ -1,0 +1,29 @@
+<section class="container">
+
+  <ul>
+    <li ng-repeat="review in item.reviews ">
+      <blockquote>
+        <strong>{{review.title}}:</strong><br />
+        <span>By {{review.user.name}} on </span>
+        <span > {{ review.updated_at | date }}</span><br />
+        {{review.content}}
+      </blockquote>
+    </li>
+  </ul>
+
+
+  <form name="reviewForm" role="form" ng-controller="ReviewCtrl as reviews" ng-submit="reviews.addReview(item)">
+
+    <h4>Submit a Review</h4>
+    <fieldset class="form-group">
+      <input ng-model="reviews.review.title" type="text" class="form-control" placeholder="Title" title="title" />
+    </fieldset>
+    <fieldset class="form-group">
+      <textarea ng-model="reviews.review.content" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+    </fieldset>
+  </form>
+</section>

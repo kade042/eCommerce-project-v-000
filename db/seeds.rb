@@ -10,7 +10,7 @@ Item.delete_all
 OrderStatus.delete_all
 User.delete_all
 
-10.times do
+90.times do
   Item.create(
     title: Faker::Commerce.product_name,
     inventory: Faker::Number.number(2),
@@ -18,25 +18,30 @@ User.delete_all
     image: Faker::Avatar.image,
     description: Faker::StarWars.quote
   )
-
-  Category.create(title: Faker::Commerce.department)
-
 end
 
+10.times do |i|
+  Category.create(title: Faker::Commerce.department)
+end
 
 counter = 1
 Item.all.each do |item|
   item.category_id = counter
   item.save
-  counter += 1
+  if counter < 10
+    counter += 1
+  else
+    counter = 1
+  end
 end
+
 
 
 10.times do |u|
   User.create(
-  name: "user#{u+1}",
-  email: "user#{u+1}@email.com",
-  password: "password"
+    name: "user#{u+1}",
+    email: "user#{u+1}@email.com",
+    password: "password"
   )
 end
 
@@ -45,6 +50,3 @@ OrderStatus.create! id: 1, name: "In Progress"
 OrderStatus.create! id: 2, name: "Placed"
 OrderStatus.create! id: 3, name: "Shipped"
 OrderStatus.create! id: 4, name: "Cancelled"
-
-
-
