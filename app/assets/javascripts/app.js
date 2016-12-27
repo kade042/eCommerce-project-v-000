@@ -1,4 +1,3 @@
-(function() {
 
 angular
   .module('eCommerce', ['ui.router', 'templates', 'Devise', 'ngMessages', 'descriptions-directive', 'categories-directives', 'auth-controller', 'cart-directive', 'search-item'])
@@ -79,4 +78,3 @@ angular
       $urlRouterProvider.otherwise('store');
     }
 ]);
-})()
