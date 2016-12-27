@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 source 'https://rails-assets.org' do
-  gem "rails-assets-angular-devise" 
+  gem "rails-assets-angular-devise"
 end
 
 gem 'angular_rails_csrf'
@@ -18,7 +18,9 @@ gem 'country_select'
 gem 'font-awesome-rails'
 
 
-
+# Use sqlite3 as the database for Active Record
+gem 'pg'
+gem 'sqlite3'
 gem 'pundit'
 
 gem "faker"
@@ -65,8 +67,7 @@ group :development, :test do
 end
 
 group :development do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
