@@ -5,11 +5,9 @@ angular
       restrict: 'E',
       templateUrl: 'search/_search.html',
       controller : function ($scope)  {
-
         var ctrl = this;
         ctrl.search = function (title) {
           items.searchByTitle(title);
-
         }
       },
       controllerAs: 'ctrl'
