@@ -1,6 +1,6 @@
 angular
   .module('categories-directives')
-  .directive('categories', function ($http) {
+  .directive('categories', ['$http', function ($http) {
 
     return {
       restrict: 'E',
@@ -13,8 +13,8 @@ angular
             ctrl.categories = res.categories;
           });
         };
-        
+
       },
       controllerAs: 'category'
     };
-  });
+  }]);

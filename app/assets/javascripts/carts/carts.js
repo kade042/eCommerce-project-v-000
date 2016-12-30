@@ -1,6 +1,6 @@
 angular
   .module('cart-directive')
-  .service('carts', function ($http) {
+  .service('carts', ['$http', function ($http) {
     var o = {
       line_items: []
     };
@@ -23,4 +23,4 @@ angular
     }
     o.getAllLineItems();
     return o;
-  });
+  }]);

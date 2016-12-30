@@ -1,6 +1,6 @@
 angular
   .module('eCommerce')
-  .controller('NavCtrl', function ($scope, $state, Auth) {
+  .controller('NavCtrl', ['$scope', '$state', 'Auth', function ($scope, $state, Auth) {
     $scope.signedIn = Auth.isAuthenticated;
 
     $scope.logout = function() {
@@ -26,4 +26,4 @@ angular
       $scope.user = {};
     });
 
-  });
+  }]);

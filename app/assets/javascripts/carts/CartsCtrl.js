@@ -1,6 +1,6 @@
 angular
   .module('cart-directive', [])
-  .controller('CartsCtrl', function ($scope, line_items, carts) {
+  .controller('CartsCtrl', ['$scope', 'line_items', 'carts', function ($scope, line_items, carts) {
     console.log(line_items);
     $scope.line_items = line_items.data.line_items;
 
@@ -33,4 +33,4 @@ angular
 
     }
 
-  });
+  }]);

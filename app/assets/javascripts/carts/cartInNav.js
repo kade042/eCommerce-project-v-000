@@ -1,6 +1,6 @@
 angular
   .module('cart-directive')
-  .directive('cartNav', function(carts) {
+  .directive('cartNav', ['carts', function(carts) {
     return {
       restrict: 'E',
       templateUrl:'carts/_cartInNav.html',
@@ -24,4 +24,4 @@ angular
       controllerAs: "ctrl"
     };
 
-  });
+  }]);

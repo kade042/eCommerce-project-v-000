@@ -1,6 +1,6 @@
 angular
   .module('search-item', ['ngMessages'])
-  .directive('searchItem', function (items)  {
+  .directive('searchItem', ['items', function (items)  {
     return {
       restrict: 'E',
       templateUrl: 'search/_search.html',
@@ -13,11 +13,10 @@ angular
         }
       },
       controllerAs: 'ctrl'
-
     }
 
-  })
-  .controller('SearchCtrl', function ($scope, itemPromise) {
+  }])
+  .controller('SearchCtrl',['$scope', 'itemPromise', function ($scope, itemPromise) {
     console.log(itemPromise);
     $scope.items = itemPromise.data.items_search;
-  });
+  }]);

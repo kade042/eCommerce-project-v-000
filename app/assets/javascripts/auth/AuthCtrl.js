@@ -1,6 +1,6 @@
 angular
   .module('auth-controller', ['ngMessages'])
-  .controller('AuthCtrl', function($scope, $state, Auth){
+  .controller('AuthCtrl', ['$scope', '$state', 'Auth', function($scope, $state, Auth){
 
     $scope.login = function() {
       Auth.login($scope.user).then(function(){
@@ -13,4 +13,4 @@ angular
         $state.go('store');
       });
     };
-});
+}]);

@@ -1,7 +1,7 @@
 
 angular
   .module('eCommerce')
-  .factory('items', function($http) {
+  .factory('items', ['$http', function($http) {
     var obj = {
       items: []
     }
@@ -28,4 +28,4 @@ angular
 
     return obj;
 
-  });
+  }]);
