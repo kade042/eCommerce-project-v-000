@@ -1,5 +1,5 @@
 angular
   .module('categories-directives', [])
-  .controller('CategoryCtrl', ['$scope', function($scope, itemPromise) {
+  .controller('CategoryCtrl', ['$scope', 'itemPromise', function($scope, itemPromise) {
     $scope.items = itemPromise.data.items;
   }]);

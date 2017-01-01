@@ -1,7 +1,7 @@
 angular
   .module('cart-directive', [])
   .controller('CartsCtrl', ['$scope', 'line_items', 'carts', function ($scope, line_items, carts) {
-    console.log(line_items);
+    //console.log(line_items);
     $scope.line_items = line_items.data.line_items;
 
     //console.log($scope.line_items);
@@ -24,7 +24,9 @@ angular
     }
 
     $scope.updateCart = function (li) {
+      //console.log(this.line_items);
       carts.updateLineItem(li.id, li);
+
     }
 
     $scope.removeItem = function (id, index) {

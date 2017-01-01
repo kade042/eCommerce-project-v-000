@@ -21,6 +21,7 @@ angular
     o.removeLineItem = function (id) {
       return $http.delete('/line_items/'+id);
     }
+    
     o.getAllLineItems();
     return o;
   }]);
