@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'store#index'
+  root to: 'store#index', as: 'store'
   #get 'item_search/index'
   resources :items_search, only: :index
   resources :reviews
