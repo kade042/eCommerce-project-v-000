@@ -4,11 +4,12 @@ angular
     return {
       restrict: 'E',
       templateUrl:'carts/_cartInNav.html',
-      /*link: function (scope, elem, attr, ctrl) {
+      link: function (scope, elem, attr, ctrl) {
        //var ctrl = this;
-        console.log("Hey");
+        //console.log("Hey");
+        //carts.getAllLineItems();
         carts.line_items.then(function (res) {
-          console.log(res);
+          //console.log(res);
           scope.line_items = res.data.line_items;
         });
 
@@ -20,17 +21,21 @@ angular
           });
           return total;
         }
-      }*/
+      }/*
       controller: function () {
         var ctrl = this;
-        console.log(carts.line_items);
+        console.log(carts.getAllLineItems());
+        //ctrl.li = {
+        //  li : carts.getAllLineItems()
+        //}
+
         carts.line_items.then(function (res) {
-          console.log(res);
           ctrl.line_items = res.data.line_items;
         });
 
-      //  console.log(ctrl.line_items);
+
         ctrl.number_item = function () {
+          //console.log("Hey!");
           var total = 0;
           angular.forEach(ctrl.line_items, function (li) {
             total += li.quantity;
@@ -38,7 +43,7 @@ angular
           return total;
         }
       },
-      controllerAs: "ctrl"
+      controllerAs: "ctrl"*/
     };
 
   }]);

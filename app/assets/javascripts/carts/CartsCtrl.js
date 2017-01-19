@@ -1,12 +1,14 @@
 angular
   .module('cart-directive', [])
-  .controller('CartsCtrl', ['$scope', 'line_items', 'carts', function ($scope, line_items, carts) {
+  .controller('CartsCtrl', ['$rootScope','$scope', 'line_items', 'carts', function ($rootScope, $scope, line_items, carts) {
     //console.log(line_items);
     $scope.line_items = line_items.data.line_items;
 
+    //console.log(carts.line_items);
     //console.log($scope.line_items);
 
     $scope.total = function() {
+      //console.log(carts.line_items);
       var total = 0;
       angular.forEach($scope.line_items, function(li) {
         total += li.item.price * li.quantity;
@@ -14,7 +16,7 @@ angular
       return total;
     }
 
-    $scope.total_no_item = function () {
+    $rootScope.total_no_item = function () {
 
       var total = 0;
       angular.forEach($scope.line_items, function (li) {
@@ -24,9 +26,8 @@ angular
     }
 
     $scope.updateCart = function (li) {
-      //console.log(this.line_items);
       carts.updateLineItem(li.id, li);
-
+      //console.log($scope.line_items);
     }
 
     $scope.removeItem = function (id, index) {

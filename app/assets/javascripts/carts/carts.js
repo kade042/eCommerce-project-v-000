@@ -10,7 +10,8 @@ angular
     }
 
     o.updateLineItem = function (id, li) {
-      return $http.put('/line_items/'+ id, li);
+       $http.put('/line_items/'+ id, li);
+       o.getAllLineItems()
 
     }
 
@@ -19,9 +20,10 @@ angular
     }
 
     o.removeLineItem = function (id) {
-      return $http.delete('/line_items/'+id);
+      $http.delete('/line_items/'+id);
+      o.getAllLineItems()
     }
-    
+
     o.getAllLineItems();
     return o;
   }]);
