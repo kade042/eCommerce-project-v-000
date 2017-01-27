@@ -1,14 +1,15 @@
 class ItemsController < ApplicationController
   #before_action :authenticate_user!, except: :show
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  PAGE_SIZE = 9
   # GET /items
   # GET /items.json
   def index
+    @page = (params[:page] || 0).to_i
     if params[:category_id] && Category.find_by(id: params[:category_id])
-      @items = Category.find_by(id: params[:category_id]).items
+      @items = Category.find_by(id: params[:category_id]).items.offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
     else
-      @items = Item.all
+      @items = Item.all.offset(PAGE_SIZE * @page).limit(PAGE_SIZE)
     end
 
     #authorize @items

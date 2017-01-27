@@ -6,8 +6,11 @@ angular
       items: []
     }
 
-    obj.getAllItems = function() {
-       return $http.get('/items.json');
+    obj.getAllItems = function(page=0) {
+       return $http.get('/items.json', {"params": {"page": page}}).then(function (res) {
+         //console.log(res);
+          return res.data.items;
+       });
     };
 
     obj.getItem = function(id) {
