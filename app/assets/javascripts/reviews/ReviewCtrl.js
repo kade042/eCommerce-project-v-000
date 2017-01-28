@@ -5,7 +5,7 @@ angular
     ctrl.review = {};
     this.addReview = function(item){
       items.addReview(item.id, this.review).success(function (data) {
-        console.log(data);
+        //console.log(data);
         item.reviews.push(data.review);
 
       });
