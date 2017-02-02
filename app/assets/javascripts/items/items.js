@@ -8,7 +8,6 @@ angular
 
     obj.getAllItems = function(page=0) {
        return $http.get('/items.json', {"params": {"page": page}}).then(function (res) {
-         //console.log(res);
           return res.data.items;
        });
     };

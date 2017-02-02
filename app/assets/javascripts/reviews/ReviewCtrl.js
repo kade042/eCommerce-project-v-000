@@ -1,17 +1,26 @@
 angular
   .module('eCommerce')
   .controller("ReviewCtrl", ['$http','items', function($http, items){
-    var ctrl = this;
-    ctrl.review = {};
+    //var ctrl = this;
+    this.review = {};
     this.addReview = function(item){
       items.addReview(item.id, this.review).success(function (data) {
-        //console.log(data);
+        //console.log(data.review);
         item.reviews.push(data.review);
 
       });
-      console.log(item);
+      //console.log(item);
       this.review = {};
     };
 
+  }])
+  .filter('topReview', function () {
+    return function(input){
 
-  }]);
+      input.sort(function (a, b) {
+         return b.upvotes - a.upvotes
+      });
+      return input;
+    }
+
+  });

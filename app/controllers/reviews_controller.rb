@@ -1,11 +1,14 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: :create
+  #before_action :authenticate_user!, only: :create
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    #binding.pry
+    item = Item.find_by(id: params['item_id'])
+    @reviews = item.reviews
+    #@reviews = Review.all
     render json: @reviews
   end
 
@@ -28,7 +31,8 @@ class ReviewsController < ApplicationController
   def create
     #binding.pry
     item = Item.find_by(id: params['item_id']);
-    @review = item.reviews.create(review_params.merge(user_id: 1))
+    #binding.pry
+    @review = item.reviews.create(review_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @review.save
@@ -73,6 +77,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:title, :content, :user_id, :item_id)
+      params.require(:review).permit(:title, :content, :user_id, :item_id, :upvotes)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110195737) do
+ActiveRecord::Schema.define(version: 20170202001657) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
@@ -73,8 +73,9 @@ ActiveRecord::Schema.define(version: 20161110195737) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "upvotes",    default: 0
     t.index ["item_id"], name: "index_reviews_on_item_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

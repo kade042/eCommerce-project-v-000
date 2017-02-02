@@ -1,29 +1,41 @@
 <section class="container">
 
   <ul>
-    <li ng-repeat="review in item.reviews ">
+    <li ng-repeat="review in item.reviews | topReview">
       <blockquote>
         <strong>{{review.title}}:</strong><br />
         <span>By {{review.user.name}} on </span>
         <span > {{ review.updated_at | date }}</span><br />
         {{review.content}}
+
+        <button type="button" name="button" ng-click="rev.incrementUpvotes(review)">+</button>
+          {{review.upvotes}}
+        <button type="button" name="button" ng-click="rev.decrementUpvotes(review)">-</button>
+
       </blockquote>
     </li>
   </ul>
 
 
-  <form name="reviewForm" role="form" ng-controller="ReviewCtrl as reviews" ng-submit="reviews.addReview(item)">
+  <form name="reviewForm" role="form" ng-controller="ReviewCtrl as reviews" ng-submit="reviewForm.$valid && reviews.addReview(item)" novalidate>
 
     <h4>Submit a Review</h4>
-    <fieldset class="form-group">
-      <input ng-model="reviews.review.title" type="text" class="form-control" placeholder="Title" title="title" />
+    <fieldset class="form-group" ng-class="{'has-error': reviewForm.title.$invalid && reviewForm.title.$touched}">
+
+      <input ng-model="reviews.review.title" type="text" class="form-control" placeholder="Title" name="title" />
+      <p ng-messages="reviewForm.title.$error" ng-if="reviewForm.title.$touched">
+        <span ng-message="required">Title is required</span>
+      </p>
     </fieldset>
     <fieldset class="form-group">
-      <textarea ng-model="reviews.review.content" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+      <textarea ng-model="reviews.review.content" class="form-control" placeholder="Write a short review of the product..." name="Review"></textarea>
     </fieldset>
 
-    <fieldset class="form-group">
+    <fieldset class="form-group" ng-class="{'has-error': reviewForm.review.$invalid && reviewForm.review.$touched}">
       <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+      <p ng-messages="reviewForm.review.$error" ng-if="reviewForm.review.$touched">
+        <span ng-message="required">Review is required</span>
+      </p>
     </fieldset>
   </form>
 </section>

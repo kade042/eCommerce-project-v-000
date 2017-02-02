@@ -2,6 +2,9 @@ angular
   .module('eCommerce')
   .controller('NavCtrl', ['$scope', '$state', 'Auth', function ($scope, $state, Auth) {
     $scope.signedIn = Auth.isAuthenticated;
+    console.log($scope.signedIn());
+    console.log(Auth);
+    console.log($scope.user);
 
     $scope.logout = function() {
       Auth.logout($scope.user).then(function () {
@@ -10,6 +13,7 @@ angular
     }
 
     Auth.currentUser().then(function (user){
+      console.log(user);
       $scope.user = user;
     });
 
@@ -18,8 +22,10 @@ angular
     });
 
     $scope.$on('devise:login', function (e, user){
-      //console.log(user);
+  
       $scope.user = user;
+      $scope.signedIn = Auth.isAuthenticated;
+      console.log($scope.signedIn());
     });
 
     $scope.$on('devise:logout', function (e, user){
