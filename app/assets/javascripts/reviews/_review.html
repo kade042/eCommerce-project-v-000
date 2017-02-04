@@ -7,10 +7,9 @@
         <span>By {{review.user.name}} on </span>
         <span > {{ review.updated_at | date }}</span><br />
         {{review.content}}
-
-        <button type="button" name="button" ng-click="rev.incrementUpvotes(review)">+</button>
+        <span class="glyphicon glyphicon-thumbs-up" ng-click="rev.incrementUpvotes(review)"></span>
           {{review.upvotes}}
-        <button type="button" name="button" ng-click="rev.decrementUpvotes(review)">-</button>
+        <span class="glyphicon glyphicon-thumbs-down" ng-click="rev.decrementUpvotes(review)"></span>
 
       </blockquote>
     </li>

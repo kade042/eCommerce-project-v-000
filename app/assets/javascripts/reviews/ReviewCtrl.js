@@ -1,5 +1,5 @@
 angular
-  .module('eCommerce')
+  .module('review', ['ngMessages'])
   .controller("ReviewCtrl", ['$http','items', function($http, items){
     //var ctrl = this;
     this.review = {};
@@ -18,7 +18,7 @@ angular
     return function(input){
 
       input.sort(function (a, b) {
-         return b.upvotes - a.upvotes
+        return b.upvotes - a.upvotes
       });
       return input;
     }

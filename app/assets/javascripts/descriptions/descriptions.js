@@ -1,6 +1,6 @@
 
 angular
-  .module('descriptions-directive',[])
+  .module('descriptions-directive', [])
   .directive('descriptions', function () {
     return {
       restrict: 'E',
