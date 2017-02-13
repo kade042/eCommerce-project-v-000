@@ -1,6 +1,6 @@
 <form name="searchForm" class="navbar-form navbar-left" role="search" novalidate>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search" ng-model="keywords"  required>
+  <div class="form-group" ng-class="{'has-error': searchForm.name.$invalid && searchForm.name.$touched}">
+    <input type="text" class="form-control" placeholder="Search" name="search" ng-model="keywords"  required>
   </div>
   <a ui-sref-opts="{reload:true}" ui-sref="search" class="btn btn-default" ng-click="searchForm.$valid && ctrl.search(keywords)" >Search</a>
 </form>

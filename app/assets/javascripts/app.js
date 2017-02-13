@@ -1,6 +1,6 @@
 
 angular
-  .module('eCommerce', ['ui.router', 'templates', 'Devise', 'ngMessages', 'descriptions-directive', 'categories-directives', 'auth-controller', 'cart-directive', 'search-item', 'review'])
+  .module('eCommerce', ['ui.router', 'templates', 'Devise', 'ngMessages', 'item-module', 'descriptions-directive', 'categories-directives', 'auth-controller', 'cart-directive', 'search-item', 'review'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('store', {

@@ -26,13 +26,13 @@
 					</div>
 				</td>
 				<td data-th="Price">
-					{{li.item.price / 100 | currency }}
+					{{li.item.price / 100 | customCurrency:exName  }}
         </td>
 				<td data-th="Quantity">
 					<input type="number" name="quantity" min="1" max="{{li.item.inventory}}" ng-model="li.quantity" ng-change="updateCart(li)">
 				</td>
 				<td data-th="Subtotal" class="text-center" >
-          {{ (li.quantity * li.item.price) / 100 | currency }}
+          {{ (li.quantity * li.item.price) / 100 | customCurrency:exName }}
          </td>
 				<td class="actions" data-th="">
 					<button class="btn btn-danger btn-sm" ng-click="removeItem(li.id, $index)" >Remove</button>
@@ -48,7 +48,7 @@
           <a class="btn btn-small btn-warning" ng-href="#/store">Continue Shopping</a>
         </td>
 				<td colspan="2" class="hidden-xs"></td>
-				<td class="hidden-xs text-center"><strong>Total {{ total()/100 | currency }}</strong></td>
+				<td class="hidden-xs text-center"><strong>Total {{ total()/100 | customCurrency:exName  }}</strong></td>
 				<td>
 					<button class="btn btn-success btn-sm" >Checkout</button>
         </td>

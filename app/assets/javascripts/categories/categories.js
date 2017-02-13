@@ -1,5 +1,5 @@
 angular
-  .module('categories-directives', [])
+  .module('categories-directives')
   .directive('categories', ['$http', function ($http) {
 
     return {

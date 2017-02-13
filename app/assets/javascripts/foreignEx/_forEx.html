@@ -1,0 +1,7 @@
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" ng-controller="ForExCtrl">
+  <div>
+      <select ng-model="toType" data-ng-change="forExConvert(toType)" ng-options="k as k for (k, v) in rates ">
+        <option value="">USD</option>
+      </select>
+  </div>
+</div>

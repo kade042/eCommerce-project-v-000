@@ -11,7 +11,7 @@
             <strong>{{ item.title }}</strong>
           </div>
 					<hr>
-					<div class="item-price">{{ item.price / 100 | currency }}</div>
+					<div class="item-price">{{ item.price / 100 | customCurrency:exName }}</div>
           <div >
             <cart></cart>
           </div>

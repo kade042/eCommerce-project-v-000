@@ -10,8 +10,11 @@ angular
 
       });
       //console.log(item);
+
       this.review = {};
     };
+
+    
 
   }])
   .filter('topReview', function () {

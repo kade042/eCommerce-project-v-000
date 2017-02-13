@@ -1,6 +1,6 @@
 
 angular
-  .module('eCommerce')
+  .module('item-module')
   .factory('items', ['$http', function($http) {
     var obj = {
       items: []
@@ -28,6 +28,13 @@ angular
        return obj.items = $http.get('/items_search.json', { "params": { "keywords": search_term }});
     };
 
+    obj.updateReview = function (id, review) {
+      $http.put('/reviews/'+id, review);
+    }
+
+    obj.getForExRate = function () {
+      return $http.get('http://api.fixer.io/latest?base=USD');
+    }
     return obj;
 
   }]);
